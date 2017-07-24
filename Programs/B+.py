@@ -1,5 +1,6 @@
 from __future__ import division
 import math
+import random
 import pdb
 import pydot
 graph = pydot.Dot(graph_type='graph')
@@ -53,7 +54,7 @@ def bplus(n,data):
                     index.append(-1)
                 else :
                     for j in range(len(node.ele)-1):
-                        if data[i] > node.ele[j] and data[i] < node.ele[j+1]:
+                        if data[i] >= node.ele[j] and data[i] < node.ele[j+1]:
                             node = node.links[j+1]
                             index.append(j+1)
                             break
@@ -102,8 +103,7 @@ def bplus(n,data):
                 tree.root = node
     return tree
 
-data = [i+1 for i in range(60)]    # The Input elements
-
+data = [i+1 for i in range(23)]    # The Input elements
 tree = bplus(4,data)               # Here ,4 is the order
 
 
@@ -112,7 +112,7 @@ def print_leaf(tree):
     node = tree.root
     while node.links != None:
         node = node.links[0]
-        print node.ele
+    print node.ele
     while node.right !=None:
         print node.right.ele
         node = node.right
@@ -136,6 +136,7 @@ def func(k,s):
         else:
             func(k.links[i],s1)
 func(k,s)
+
 graph.write_png('Tree.png')
 
     

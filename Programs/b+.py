@@ -117,8 +117,9 @@ def bplus(n,data):
                               
     return tree
 
-data = [0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0]
-tree = bplus(3,data)
+data = [i+1 for i in range(50) ]
+tree = bplus(7,data)
+print tree.layer
 pdb.set_trace()
 
             
